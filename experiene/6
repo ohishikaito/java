@@ -1,0 +1,49 @@
+// package experiene;
+
+public class Ex1_06_1 {
+  public static void main(String[] args) {
+    // // 1
+    // int answer1 = 3 + (7 % 4) / 2;
+    // System.out.println(answer1); // 4
+
+    // // 2
+    // int calc2 = 10;
+    // int answer2 = ++calc2;
+    // System.out.println(calc2); // 11
+    // System.out.println(answer2); // 11
+
+    // // 3
+    // int calc3 = 10;
+    // int answer3 = calc3++;
+    // System.out.println(calc3); // 11
+    // System.out.println(answer3); // 10
+
+    // // 4
+    // int calc4 = 10;
+    // int answer4 = calc4 + 1;
+    // System.out.println(calc4); // 10
+    // System.out.println(answer4); // 11
+
+    // // 5
+    // System.out.println("1" + "6"); // 16
+
+    // ------------------------------------------------
+
+    // 1
+    boolean answer1 = 5 == 3 + 2;
+    System.out.println(answer1); // true
+
+    // 2
+    boolean answer2 = 5 >= 3 + 2;
+    System.out.println(answer2); // true
+
+    // 3
+    boolean answer3 = 5 >= 3 + 2 && 10 % 3 != 1;
+    System.out.println(answer3); // false 後者は数値が一致してるので、false
+
+    // 4
+    // boolean answer4 = (5 >= 3 + 2 || 2 + 8 != 9) && !(6 == 2 + 4);
+    boolean answer4 = (5 >= 3 + 2 || 2 + 8 != 9) && false;
+    System.out.println(answer4); // true➡️falseでした残念！
+  }
+}

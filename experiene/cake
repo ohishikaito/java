@@ -1,0 +1,33 @@
+public class cake {
+  public static void main(String[] args1) {
+    double a = 1.9;
+    int b = 5;
+    System.out.println(a * b);
+    System.out.println(b *= a);
+
+    String[] inputs = { "ショートケーキ", "2", "いちごのタルト", "3" };
+    String[] items = { "ショートケーキ", "320", "モンブラン", "350", "チョコレートケーキ", "370", "いちごのタルト", "400", "チーズケーキ", "300" };
+    int result = 0;
+    int i = 0;
+    for (String input : inputs) {
+      int j = 0;
+      for (String item : items) {
+        if (input == item) {
+          result += Integer.parseInt(inputs[i + 1]) * Integer.parseInt(items[j + 1]);
+          // int tanka = Integer.parseInt(inputs[i + 1]) * Integer.parseInt(items[j + 1]);
+          // System.out.println("inputs[i] " + inputs[i]);
+          // System.out.println("items[j] " + items[j]);
+          // System.out.println("tanka " + tanka);
+        }
+        j += 1;
+      }
+      i += 1;
+      // System.out.println("j " + j + " " + "i " + i);
+    }
+    result *= 1.08; // 消費税
+    if (result >= 1000) {
+      result *= 0.8;
+    }
+    System.out.println(result);
+  }
+}

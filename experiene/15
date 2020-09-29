@@ -1,0 +1,96 @@
+/*-< 演習：Ex1_15_1 >---------------------------------
+BigDecimalの扱いについてAPIドキュメントなどで調べながら
+以下の結果が表示されるプログラムを作ってみましょう！
+----------------------------------------------------*/
+import java.math.RoundingMode;
+import java.math.BigDecimal;
+
+class Ex1_15_1 {
+  public static void main(String[] args) {
+
+    // (1) 0.2 * 83 - 10.6
+    BigDecimal b1 = new BigDecimal("0.2");
+    BigDecimal b2 = new BigDecimal("83");
+    BigDecimal b3 = new BigDecimal("10.6");
+    BigDecimal result1 = ((b1.multiply(b2)).subtract(b3));
+    System.out.println(result1);
+
+    // (2) 0.2 * 83 - 10.6 / 3 ※小数第4位までで表示（小数第5位以下は四捨五入）
+    // <補足>
+    // BigDecimalによる割り算は丸めの指定が必要です！
+    // XXX ÷ YYYをして小数第2位で表示（小数第3位以下は切り捨て）
+    // XXX.divide(YYY, 2, RoundingMode.DOWN);
+    BigDecimal b4 = new BigDecimal("3");
+    BigDecimal result2 = ((b1.multiply(b2)).subtract((b3.divide(b4, 2, RoundingMode.HALF_UP))));
+    // System.out.println(b3.divide(b4, 2, RoundingMode.DOWN));
+    System.out.println(result2);
+  }
+}
+
+
+
+import java.util.List;
+import java.util.ArrayList;
+
+/*-< 演習：Ex1_15_2 >---------------------------------
+コメントに従って2次元配列からデータを抽出して画面に表示するプログラムを作ってください。
+----------------------------------------------------*/
+class Tintin {
+  public static void main(String[] args) {
+    /*
+     ** 犬の情報を持つ配列。格納されている情報は以下のとおり。 - dogs[x][0]：名前 - dogs[x][1]：年齢 - dogs[x][2]：性別
+     */
+    String[][] dogs = { { "モコ", "4歳", "メス" }, { "ムギ", "2歳", "オス" }, { "ブブ", "3歳", "メス" }, { "シロ", "8歳", "オス" },
+        { "ブブ", "3歳", "メス" }, { "ペロ", "1歳", "メス" }, { "ルル", "14歳", "オス" }, { "モモ", "10歳", "メス" }, { "ポチ", "6歳", "オス" },
+        { "エル", "2歳", "メス" } };
+    /*
+     * 以下のプログラムを作成してください。 ①Sring型を扱うArrayList「adultFemaleDogsList」を作成する
+     ** ②2次元配列dogsから以下の条件にあてはまる名前を抽出し、すべてadultFemaleDogsListに格納する - 4歳以上 - メス
+     ** ※ヒント：年齢の文字列から「歳」を除去する方法について調べてみよう！
+     ** ③adultFemaleDogsListに格納されているすべてのデータをprintlnで表示する
+     */
+    List<String> adultFemaleDogsList = new ArrayList<String>(); // 格納に用いるArrayList
+    for (int i = 0; i < dogs.length - 1; i++) {
+      if (Integer.parseInt(dogs[i][1].replace("歳", "")) >= 4 && dogs[i][2].equals("メス")) {
+        // System.out.println((dogs[i][1].replace("歳", "")));
+        adultFemaleDogsList.add(dogs[i][0]);
+      }
+    }
+    for (int i = 0; i < adultFemaleDogsList.size(); i++) {
+      System.out.println(adultFemaleDogsList.get(i));
+    }
+    // for (String dog : adultFemaleDogsList) {
+    // System.out.println(dog);
+    // }
+
+    // int i = 0;
+    // int j = 0;
+    // for (i = 0; i < dogs.length - 1; i++) {
+    // // System.out.println(dogs[i]);
+    // for (j = 0; j < dogs[i].length; j++) {
+    // char dog_age_char = dogs[i][j].charAt(0);
+    // int dog_age_int = Character.getNumericValue(dog_age_char);
+    // final int BORDER_AGE = 4;
+    // if (BORDER_AGE <= dog_age_int && dogs[i][j].charAt(1) == '歳') {
+    // System.out.println("age");
+    // // adultFemaleDogsList.add(dogs[i]);
+    // // adultFemaleDogsList.
+    // } else if (dogs[i][j].substring(0, 2) == "メス") {
+    // System.out.println("mesu");
+    // }
+    // }
+    // }
+
+    // int i = 0;
+    // for (String[] dog : dogs) {
+    // System.out.println(dog[i]);
+    // int j = 0;
+    // for (String d : dog) {
+    // System.out.println(d);
+    // j++;
+    // }
+    // i++;
+    // }
+
+  }
+}

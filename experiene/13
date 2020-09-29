@@ -1,0 +1,58 @@
+outside1:
+for文 i1=1をi<=9まで繰り返す i1++
+  disp1=""
+  for文 j1=1をj<=9まで繰り返す j1++
+    もしi1*j1が54なら
+      outside1をbreak
+    disp1=disp+ i1*j1
+  disp1を出力
+end
+// 九九の6*9まで繰り返す。➡️5段まででーす。if文抜けてから一行表示ね
+
+outside2:
+for文 i1=1をi<=9まで繰り返す i1++
+  disp1=""
+  for文 j1=1をj<=9まで繰り返す j1++
+    もしi1*j1が54なら
+      outside2をcontinue（処理を中断して継続）
+    disp1=disp+ i1*j1
+  disp1を出力
+end
+// 九九を9段まで表示➡️6段と9段を飛ばす。54ならcontinueだから。
+
+
+
+/*-< 演習：Ex1_13_2 >---------------------------------
+コマンドライン引数で受け取った整数（A型：1, B型：2, O型：3, AB型：4）に応じて、
+以下の実行結果を表示するプログラムを作成してください。
+ただし、switch文を必ず使用してください。
+
+  (A型)が入力された場合 ："あなたは几帳面な性格の方ですね？"
+  (B型)が入力された場合 ："あなたはマイペースな性格の方ですね？"
+  (O型)が入力された場合 ："あなたは大雑把な性格ですね？"
+  (AB型)が入力された場合："あなたは天才肌な方ですね？"
+  上記以外              ："数字の1～4で答えてください"
+
+----------------------------------------------------*/
+public class Main {
+  public static void main(String[] args1) {
+    int args = 6;
+    switch (args) {
+      case 1:
+        System.out.println("A");
+        break;
+
+      case 2:
+        System.out.println("B");
+        break;
+
+      case 3:
+        System.out.println("O");
+        break;
+
+      default:
+        System.out.println("def");
+
+    }
+  }
+}

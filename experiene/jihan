@@ -1,0 +1,42 @@
+// public class jihan1 {
+//   public static void main(String[] args1) {
+//     int[] get_money = { 1, 10, 50, 100, 500, 777 };
+//     int result = 0;
+//     for (int i : get_money) {
+//       if (i == 1) {
+//         System.out.println("1円玉やだ");
+//       } else if (i == 5) {
+//         System.out.println("5円玉しね");
+//       } else if (i == 10 || i == 50 || i == 100 || i == 500) {
+//         result += i;
+//       } else {
+//         System.out.println(i + ":だめです");
+//       }
+//     }
+//     System.out.println("投入金額" + result);
+//   }
+// }
+
+public class jihan2 {
+  public static void main(String[] args1) {
+    int[] get_money = { 1, 10, 50, 100, 500, 777, 580 };
+    int result = 0;
+    int buy_item = 0;
+    for (int i : get_money) {
+      if (i == 1) {
+        System.out.println("1円玉やだ");
+      } else if (i == 5) {
+        System.out.println("5円玉しね");
+      } else if (i == 10 || i == 50 || i == 100 || i == 500) {
+        result += i;
+      } else if (i == get_money[get_money.length - 1]) {
+        buy_item = i;
+      } else {
+        System.out.println(i + ":だめです");
+      }
+    }
+    System.out.println("投入金額 " + result);
+    result -= buy_item;
+    System.out.println("購入後 " + result);
+  }
+}

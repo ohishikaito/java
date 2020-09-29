@@ -1,0 +1,70 @@
+
+/*-< 演習：Ex1_12_1 >---------------------------------
+コマンドライン引数から数値を1つ受け取り、これをテストの点数とします。
+
+(1)以下のプログラムを作成してください。
+  - 点数が0～100以外の数字だった場合「不正な点数です！」と表示する
+
+(2)以下の機能を(1)のプログラムに追加してください。
+  - 点数が0～59の数字だった場合「赤点です！」と表示する
+  - 点数が60～79の数字だった場合「普通です！」と表示する
+  - 点数が80～100の数字だった場合「優秀です！」と表示する
+
+(3)以下の機能を(1)(2)のプログラムに追加してください。
+  - 点数の数字が100だった場合のみ「満点だったので宿題免除です！！」と最後に表示する
+----------------------------------------------------*/
+class Ex1_12_1 {
+  public static void main(String[] args) {
+    int result = 100;
+    if (result < 0 && result > 100) {
+      System.out.println("不正な点数です！");
+    } else if (result >= 80 && result <= 100) {
+      System.out.println("優秀です！");
+      if (result == 100) {
+        System.out.println("満点だったので宿題免除です！！");
+      }
+    } else if (result >= 60 && result <= 79) {
+      System.out.println("普通");
+    } else if (result >= 0 && result <= 59) {
+      System.out.println("赤点");
+    }
+  }
+}
+
+
+
+
+// /*-< 演習：Ex1_12_2 >---------------------------------
+// 以下は以前に講座で扱った Sample1_11_1.java と同じ内容の処理です。
+// このプログラムは 0 や 1 などをコマンドライン引数で受け取ると無限ループに陥ってしまいます。
+// この対策としてreceiveNumberが以下のNGパターンに該当する場合はwhile文を実行せず、代わりに
+// 「適切な値を入力してください」というメッセージを表示するプログラムに書き換えてください。
+
+// [receiveNumberのNGパターン]
+// |_ receiveNumberの値がマイナス
+// |_ receiveNumberの値が0
+// |_ receiveNumberの値が1
+
+// ----------------------------------------------------*/
+class Ex1_12_2 {
+  public static void main(String[] args) {
+    /*
+     * コマンドライン引数で受け取った数字の累乗の数のうち、100未満のもののみを表示するプログラムを作る。 【例】コマンドライン引数での入力：3 →
+     * 表示される数：3 , 9 , 27 , 81
+     */
+    // [receiveNumberのNGパターン]
+    // |_ receiveNumberの値がマイナス
+    // |_ receiveNumberの値が0
+    // |_ receiveNumberの値が1
+    int receiveNumber = Integer.parseInt("9"); // ループ毎にcalcNumberに掛ける数（コマンドライン引数で受け取った値）
+    if (receiveNumber <= 1) {
+      System.out.println("帰れ！");
+    } else {
+      int calcNumber = receiveNumber; // 表示する数（初期値：コマンドライン引数で受け取った値）
+      while (calcNumber < 100) {
+        System.out.println("calcNumber：" + calcNumber);
+        calcNumber *= receiveNumber;
+      }
+    }
+  }
+}
